@@ -1,4 +1,5 @@
-const util = require('util');
+// import { f } from './l';
+const l = require('./l');
 
 function createInvoice( invoiceNumber ){
     return {
@@ -34,13 +35,6 @@ function addItem(
 };
 
 i = addItem( createInvoice(1), 2, 10, 'T-Shirt');
-console.log( i );
-console.dir( i, { depth: null })
-console.log(util.inspect(i, { compact: true, showHidden: false, depth: null }));
-console.log(util.inspect(i, { colors: true, compact: false, showHidden: false, depth: null }));
 
-function f( o ){
-    console.log(util.inspect(o, { colors: true, compact: false, showHidden: false, depth: null }));
-};
 
-f( i );
+l.f( i );
