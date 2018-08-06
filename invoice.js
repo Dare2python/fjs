@@ -1,5 +1,5 @@
 // import { f } from './l';
-const l = require('./l');
+cc
 
 function createInvoice(invoiceNumber) {
     return {
