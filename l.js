@@ -8,14 +8,13 @@ function f( o ){
     console.log(util.inspect(o, { colors: true, compact: true, showHidden: true, depth: null, showProxy: true }));
 };
 
-const rectangleArea = function(){
-    return this.width * this.heigth;
-}
+sequence = ( f1, f2 ) =>
+    (...args) =>
+    f2( f1( ...args ) );
 
-f( 
-    ['Functional', 'programming', 'is', 'cool']
-        .map( word => word.length )
-        .filter( num => num % 2 === 0)
-        .reduce( (a, b) => a+b, 0)
-);
+const f1 = ( a, b ) => a + b;
+const f2 = a => `Result: ${a}`;
 
+console.log( f2( f1(  2, 5 ) ) );
+
+console.log( sequence( f1, f2 )(2, 5) );
