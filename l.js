@@ -8,11 +8,17 @@ function f( o ){
     console.log(util.inspect(o, { colors: true, compact: true, showHidden: true, depth: null, showProxy: true }));
 };
 
-const cloneArray = arr => [...arr];
+const rectangleArea = function(){
+    return this.width * this.heigth;
+}
 
-const originalArray = ['hi', {on:true}];
+f( rectangleArea() );
 
-const newArray = cloneArray( originalArray );
+const rectangle  = {
+    width: 5,
+    heigth: 4
+};
 
-f(originalArray );
-f(newArray );
+console.log( rectangleArea.bind(rectangle) );
+f( rectangleArea.bind(rectangle) );
+f( rectangleArea.bind(rectangle)() );
