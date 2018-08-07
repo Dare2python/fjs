@@ -12,13 +12,10 @@ const rectangleArea = function(){
     return this.width * this.heigth;
 }
 
-f( rectangleArea() );
+f( 
+    ['Functional', 'programming', 'is', 'cool']
+        .map( word => word.length )
+        .filter( num => num % 2 === 0)
+        .reduce( (a, b) => a+b, 0)
+);
 
-const rectangle  = {
-    width: 5,
-    heigth: 4
-};
-
-console.log( rectangleArea.bind(rectangle) );
-f( rectangleArea.bind(rectangle) );
-f( rectangleArea.bind(rectangle)() );
